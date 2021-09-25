@@ -1,21 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage('Deploy') {
+        stage('TestLambda') {
             steps {
                 nodejs(nodeJSInstallationName: 'nodejs') {
                     withAWS(credentials: 'AWS-POC') {
-                        sh 'serverless deploy'
+                        sh '''
+                            cd integracion
+                            ./scriptcreds.sh
+                        '''
                     }
                 }
             }
         }
-        stage('Tests') {
-                    steps {
-                         sh './scriptcreds.sh'
-                            }
-                        }
-                    }
-                }
     }
 }
