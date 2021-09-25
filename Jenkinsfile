@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Tests') {
                     steps {
-                        sh 'scriptcreds.sh deploy'
+                         sh './scriptcreds.sh'
                             }
                         }
                     }
