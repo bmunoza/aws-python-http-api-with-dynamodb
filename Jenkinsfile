@@ -10,5 +10,12 @@ pipeline {
                 }
             }
         }
+        stage('Tests') {
+                    steps {
+                        sh 'scriptcreds.sh deploy'
+                            }
+                        }
+                    }
+                }
     }
 }
